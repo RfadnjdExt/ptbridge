@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["ptmp", "ptmcp"]
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
