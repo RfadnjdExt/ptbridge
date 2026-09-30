@@ -1,0 +1,46 @@
+ptbridge License
+Copyright (c) 2026 RfadnjdExt
+
+1. Definitions
+"Software" means the ptbridge source code, compiled binaries, and
+documentation distributed with them.
+
+2. Personal, educational, and non-commercial use
+Permission is granted, free of charge, to any individual obtaining a copy
+of the Software to use, study, modify, and redistribute it, for personal,
+educational, and other non-commercial purposes, provided that:
+
+  a. this license is included in all copies or substantial portions of
+     the Software;
+  b. modified versions are not represented as the original Software;
+  c. no fee is charged for the Software itself as part of the
+     redistribution.
+
+3. Commercial use requires permission
+Any use of the Software primarily intended for or directed toward
+commercial advantage or monetary compensation requires prior written
+permission from the copyright holder. Commercial use includes, without
+limitation: selling the Software or access to it, bundling it into a paid
+product or service, offering it as a paid feature, or use by a for-profit
+organization in its operations.
+
+To obtain a commercial license, contact the copyright holder:
+https://github.com/RfadnjdExt
+
+4. Contributions
+By contributing to the Software you grant the copyright holder a
+perpetual, worldwide, royalty-free license to use, modify, and
+redistribute your contribution under this license.
+
+5. No warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR
+ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE
+SOFTWARE.
+
+6. Termination
+This license terminates automatically if you breach its terms. Upon
+termination you must stop using and distributing the Software. Sections
+3, 4, and 5 survive any termination.
