@@ -443,13 +443,18 @@ impl IpcCall {
         self
     }
     pub fn ip(mut self, dotted: &str) -> Self {
+        // Never panic on bad input: malformed octets degrade to 0 and the
+        // length check follows; ptmcp validates addresses before calling.
         let octets: [u8; 4] = {
             let parts: Vec<u8> = dotted
                 .split('.')
-                .map(|p| p.parse::<u8>().expect("ip octet"))
+                .map(|p| p.parse::<u8>().unwrap_or(0))
                 .collect();
-            assert_eq!(parts.len(), 4, "ipv4 dotted quad");
-            [parts[0], parts[1], parts[2], parts[3]]
+            if parts.len() == 4 {
+                [parts[0], parts[1], parts[2], parts[3]]
+            } else {
+                [0, 0, 0, 0]
+            }
         };
         let p = self.last_params();
         p.push(TAG_IP);
@@ -464,11 +469,16 @@ impl IpcCall {
             .chars()
             .filter(|c| c.is_ascii_hexdigit())
             .collect();
-        assert_eq!(hex.len(), 32, "uuid must have 32 hex digits");
-        let bytes: Vec<u8> = (0..32)
-            .step_by(2)
-            .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).expect("hex"))
-            .collect();
+        // Invalid input must never panic the server: send an all-zero uuid and
+        // let Packet Tracer answer "not found"; ptmcp validates before calling.
+        let bytes: Vec<u8> = if hex.len() == 32 {
+            (0..32)
+                .step_by(2)
+                .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).unwrap_or(0))
+                .collect()
+        } else {
+            vec![0u8; 16]
+        };
         let p = self.last_params();
         p.push(TAG_UUID);
         p.extend_from_slice(&bytes);

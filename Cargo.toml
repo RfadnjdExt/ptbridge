@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["ptmp", "ptmcp"]
+members = ["ptmp", "ptmcp", "pt-patch"]
 
 [profile.release]
 lto = true
